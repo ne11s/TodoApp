@@ -13,7 +13,7 @@ public class Todo {
     private boolean done = false;
 
     public Todo(String name, String description) {
-        this.id = ++nbrId ;
+        this.id = nbrId++;
         this.name = name;
         this.description = description;
     }
