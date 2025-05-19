@@ -49,7 +49,7 @@ public class Todo {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", done=" + done +
+                ", done=" + (done ? "fait" :"a faire") +
                 '}';
     }
 }
