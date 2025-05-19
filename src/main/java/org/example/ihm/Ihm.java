@@ -1,5 +1,6 @@
 package org.example.ihm;
 
+import org.example.model.Priority;
 import org.example.model.Todo;
 import org.example.service.TodoService;
 
@@ -23,7 +24,8 @@ public class Ihm {
             System.out.println("4. Supprimer une tâche");
             System.out.println("5. Marquer tâche comme faite / non faite");
             System.out.println("6. Afficher les tâche non faite");
-            System.out.println("7. Quitter");
+            System.out.println("7. Créer une tâche prioritaire");
+            System.out.println("8. Quitter");
             System.out.print("Votre choix : ");
             String input = scanner.nextLine();
 
@@ -34,7 +36,8 @@ public class Ihm {
                 case "4" -> deleteTodo();
                 case "5" -> toggleTodo();
                 case "6" -> justNotDone();
-                case "7" -> {
+                case "7" -> createPriorityTodo();
+                case "8" -> {
                     System.out.println("Au revoir !");
                     return;
                 }
@@ -91,5 +94,15 @@ public class Ihm {
             System.out.println(todo);
         }
 
+    }
+    private void createPriorityTodo() {
+        System.out.print("Nom : ");
+        String name = scanner.nextLine();
+        System.out.print("Description : ");
+        String description = scanner.nextLine();
+        System.out.println("Priorité de la tache ?(BASSE/MOYENNE/HAUTE) : ");
+        String prio = scanner.nextLine().toUpperCase();
+        service.addPriorityTodo(name, description,Priority.valueOf(prio));
+        System.out.println("Tâche ajoutée !");
     }
 }

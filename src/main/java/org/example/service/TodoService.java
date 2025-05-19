@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.Priority;
 import org.example.model.Todo;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface TodoService {
     void remove(int id);
     void toggleDone(int id);
     List<Todo> justNotDone();
+    void addPriorityTodo(String name, String description, Priority priority);
 }

@@ -1,5 +1,7 @@
 package org.example.service;
 
+import org.example.model.Priority;
+import org.example.model.PriorityTodo;
 import org.example.model.Todo;
 
 import java.util.ArrayList;
@@ -24,6 +26,11 @@ public class TodoServiceImpl implements TodoService{
         Todo todo = new Todo(name,description);
         todoList.put(todo.getId(),todo);
     }
+    @Override
+    public void addPriorityTodo(String name, String description, Priority priority){
+        PriorityTodo priorityTodo = new PriorityTodo(name, description, priority);
+        todoList.put(priorityTodo.getId(), priorityTodo);
+    }
 
     @Override
     public void update(int id, String name, String description, boolean done) {
@@ -41,6 +48,7 @@ public class TodoServiceImpl implements TodoService{
     public void toggleDone(int id) {
         todoList.get(id).setDone(!todoList.get(id).isDone());
     }
+    @Override
     public List<Todo> justNotDone(){
         List<Todo> todoListNotDone = new ArrayList<>();
         for (Todo t : todoList.values()) {
