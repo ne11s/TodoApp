@@ -1,9 +1,5 @@
 package org.example.model;
 
-import org.example.service.TodoService;
-
-import javax.xml.namespace.QName;
-import java.util.List;
 
 public class Todo {
     private static int nbrId;
